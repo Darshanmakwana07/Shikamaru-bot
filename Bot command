@@ -18,7 +18,8 @@ def joke_command(update: Update, context: CallbackContext) -> None:
 
 def main():
     # Replace 'YOUR_TOKEN' with your bot's API token
-    updater = Updater("7968636909:AAGG8Fb5a6s6g_2x6Hdy62JTdsPJRKdYG9A")
+    updater = Updater("
+Fb5a6s6g_2x6Hdy62JTdsPJRKdYG9A")
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
