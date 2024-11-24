@@ -1,0 +1,36 @@
+import random
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, CallbackContext
+
+# List of jokes
+jokes = [
+    "Why don't scientists trust atoms? Because they make up everything!",
+    "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    "What do you call fake spaghetti? An impasta!",
+    "Why couldn't the bicycle stand up by itself? It was two tired!",
+    "What do you get when you cross a snowman and a vampire? Frostbite!"
+]
+
+# Command handler for /joke
+def joke_command(update: Update, context: CallbackContext) -> None:
+    joke = random.choice(jokes)  # Pick a random joke
+    update.message.reply_text(joke)
+
+def main():
+    # Replace 'YOUR_TOKEN' with your bot's API token
+    updater = Updater("7968636909:AAGG8Fb5a6s6g_2x6Hdy62JTdsPJRKdYG9A")
+
+    # Get the dispatcher to register handlers
+    dp = updater.dispatcher
+
+    # Register the /joke command handler
+    dp.add_handler(CommandHandler("joke", joke_command))
+
+    # Start the bot
+    updater.start_polling()
+
+    # Run the bot until you send a signal to stop
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
